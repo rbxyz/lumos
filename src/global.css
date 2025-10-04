@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 0 0% 4%;
+        --foreground: 123 100% 50%;
+
+        --terminal-black: 0 0% 4%;
+        --terminal-green: 123 100% 50%;
+        --terminal-green-dark: 123 80% 30%;
+        --terminal-green-muted: 123 50% 40%;
+        --terminal-cyan: 180 100% 50%;
+
+        --card: 0 0% 6%;
+        --card-foreground: 123 100% 50%;
+
+        --popover: 0 0% 6%;
+        --popover-foreground: 123 100% 50%;
+
+        --primary: 123 100% 50%;
+        --primary-foreground: 0 0% 4%;
+
+        --secondary: 123 80% 30%;
+        --secondary-foreground: 123 100% 50%;
+
+        --muted: 123 50% 20%;
+        --muted-foreground: 123 50% 40%;
+
+        --accent: 180 100% 50%;
+        --accent-foreground: 0 0% 4%;
+
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0 0% 98%;
+
+        --border: 123 100% 50% / 0.3;
+        --input: 123 100% 50% / 0.2;
+        --ring: 123 100% 50%;
+
+        --radius: 0.25rem;
+
+        /* Custom terminal effects */
+        --glow-sm: 0 0 4px hsl(123 100% 50% / 0.5);
+        --glow-md: 0 0 8px hsl(123 100% 50% / 0.6), 0 0 16px hsl(123 100% 50% / 0.3);
+        --glow-lg: 0 0 12px hsl(123 100% 50% / 0.7), 0 0 24px hsl(123 100% 50% / 0.4), 0 0 36px hsl(123 100% 50% / 0.2);
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground font-mono;
+        text-shadow: var(--glow-sm);
+    }
+
+    .scanlines {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .scanlines::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: repeating-linear-gradient(0deg,
+                rgba(0, 0, 0, 0.15),
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 2px);
+        pointer-events: none;
+        z-index: 50;
+    }
+
+    .text-glow {
+        text-shadow: var(--glow-md);
+    }
+
+    .text-glow-lg {
+        text-shadow: var(--glow-lg);
+    }
+
+    @keyframes glitch {
+
+        0%,
+        90%,
+        100% {
+            transform: translate(0);
+        }
+
+        92% {
+            transform: translate(-2px, 1px);
+        }
+
+        94% {
+            transform: translate(2px, -1px);
+        }
+
+        96% {
+            transform: translate(-1px, 2px);
+        }
+    }
+
+    .text-glitch {
+        animation: glitch 8s infinite;
+    }
+
+    @keyframes blink {
+
+        0%,
+        49% {
+            opacity: 1;
+        }
+
+        50%,
+        100% {
+            opacity: 0;
+        }
+    }
+
+    .animate-blink {
+        animation: blink 1s infinite;
+    }
+
+    @keyframes flicker {
+
+        0%,
+        100% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0.97;
+        }
+    }
+
+    .crt-flicker {
+        animation: flicker 0.15s infinite;
+    }
+
+    @keyframes rotate-sync {
+
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .rotate-sync {
+        animation: rotate-sync 28.5s linear infinite;
+        transform-origin: 50% 50%;
+    }
+
+    /* Rotação no eixo Y com perspectiva para sincronizar com globo */
+    @keyframes rotate-sync-y {
+        0% {
+            transform: rotateY(0deg);
+        }
+
+        100% {
+            transform: rotateY(360deg);
+        }
+    }
+
+    .rotate-sync-y {
+        animation: rotate-sync-y 28.5s linear infinite;
+        transform-style: preserve-3d;
+    }
+
+    .perspective-1000 {
+        perspective: 1000px;
+    }
+
+    @keyframes terminal-boot {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-terminal-boot {
+        animation: terminal-boot 0.3s ease-out forwards;
+    }
+}

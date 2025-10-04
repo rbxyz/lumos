@@ -62,7 +62,7 @@ export const Portfolio = () => {
           </h2>
         </div>
         <div className="text-right">
-          <div className="text-xs text-muted-foreground">Total Value</div>
+          <div className="text-xs text-muted-foreground">Valor total</div>
           <div className="text-lg font-bold text-primary">
             R$ {totalCurrent.toFixed(2)}
           </div>
@@ -101,7 +101,7 @@ export const Portfolio = () => {
                     R$ {item.currentPrice.toFixed(2)}
                   </div>
                   <div className="text-xs text-muted-foreground">
-                    {item.quantity} shares
+                    {item.quantity} ações
                   </div>
                 </div>
               </div>

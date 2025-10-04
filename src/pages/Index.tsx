@@ -17,11 +17,11 @@ const Index = () => {
     switch (lowerInput) {
       case "help":
         output = `Available commands:
-  help       - Display this help message
-  status     - Show system status
-  portfolio  - Display portfolio summary
-  clear      - Clear command history
-  about      - About Lumos Terminal`;
+  help       - Exibir esta mensagem de ajuda
+  status     - Exibir status do sistema
+  portfolio  - Exibir resumo do portfólio
+  clear      - Limpar histórico de comandos
+  about      - Sobre Lumos Terminal`;
         break;
       case "status":
         output = `System Status:
@@ -32,20 +32,20 @@ const Index = () => {
   Latency: 12ms`;
         break;
       case "portfolio":
-        output = `Portfolio loaded. Check the Portfolio panel above for details.`;
+        output = `Portfolio carregado. Ver o painel de portfólio acima para detalhes.`;
         break;
       case "clear":
         setCommands([]);
         return;
       case "about":
-        output = `LUMOS Terminal v3.14.159
-Financial Intelligence Platform
-Built for traders and investors
-Type 'help' for available commands`;
+        output = `LUMOS Terminal v1.0.0
+Plataforma de Finanças
+Desenvolvido para traders e investidores
+Digite 'help' para ver os comandos disponíveis`;
         break;
       default:
-        output = `Command not found: ${input}
-Type 'help' for available commands`;
+        output = `Comando não encontrado: ${input}
+Digite 'help' para ver os comandos disponíveis`;
     }
 
     setCommands((prev) => [...prev, { input, output }]);

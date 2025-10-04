@@ -46,7 +46,7 @@ export const MarketTicker = () => {
       <div className="flex items-center gap-2 mb-4">
         <div className="w-2 h-2 rounded-full bg-primary shadow-glow animate-pulse"></div>
         <h2 className="text-sm font-bold uppercase tracking-wider text-glow">
-          Live Market Feed
+          Feed de mercado em tempo real
         </h2>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">

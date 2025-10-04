@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const bootMessages = [
-  "INITIALIZING LUMOS TERMINAL v3.14.159...",
+  "INITIALIZING LUMOS TERMINAL v1.0.0...",
   "LOADING MARKET DATA MODULES...",
   "CONNECTING TO FINANCIAL NETWORKS...",
   "ESTABLISHING SECURE CONNECTION...",
