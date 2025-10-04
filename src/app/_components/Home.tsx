@@ -1,5 +1,5 @@
 "use client";
-import Index from "@/pages/Index";
+import Index from "./Index";
 
 export function Home() {
   return <Index />;
